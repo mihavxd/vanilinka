@@ -1,0 +1,56 @@
+{% load static %}
+{% load cache %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(91911558, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/91911558" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="yandex-verification" content="d10ca62bd6963d96" />
+    <title>{% block title %}Торты в Курске{% endblock %}</title>
+    <meta name="description" content="Торты на заказ с бесплатной доставкой в Курске">
+    <meta name="keywords" content="Торты на заказ Курск, торт в курске, медовик торт, торт морковный">
+    <meta property="og:url" content="https://www.xn--j1aakibgcck.online">
+    <meta property="og:title" content="Торты в Курске">
+    <meta property="og:description" content="Торты на заказ в Курске с индивидуальным дизайном любой сложности. Изготавливаем торты только из качественных натуральных ингредиентов. Доставка по Курску.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="{% static 'cake2.png' %}">
+    <link rel="canonical" href="https://www.xn--j1aakibgcck.online">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon"href="{% static 'favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+    <div class="wrapper">
+
+        {% cache 20 header %}
+        {% include 'inc/_header.html' %}
+        {% endcache %}
+
+        {% block content %}{% endblock %}
+
+        {% cache 20 footer %}
+        {% include 'inc/_footer.html' %}
+        {% endcache %}
+
+    </div>
+</body>
+
+</html>

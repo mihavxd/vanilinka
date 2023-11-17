@@ -1,0 +1,12 @@
+<div class="{{ menu_class }}">
+    <!-- Menu -->
+    <div class="menu">
+        <ul>
+            {% for item in categories %}
+            <li><a href="{{ item.get_absolute_url }}">{{ item.title }}</a></li>
+            <li><a href="{% url 'dostavka' %}">Доставка</a></li>
+            <li><a href="{% url 'contactforms' %}">Контакты</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>

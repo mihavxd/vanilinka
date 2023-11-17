@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load sidebar %}
+
+{% block title %}{{ title }} :: {{ block.super }}{% endblock %}
+
+{% block content %}
+
+
+    <section class="tech-wrap">
+        <div class="container">
+            <div class="tech-block">
+                {% for post in posts %}
+                <article class="tech-blcok-item">
+                    <header>
+                        {% if post.photo %}
+                        <img src="{{ post.photo.url }}" alt="{{ post.title }}">
+                        {% else %}
+                        <img src="https://placebear.com/300/201" alt="{{ post.title }}">
+                        {% endif %}
+                    </header>
+                    <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
+                    {{ post.content|truncatewords_html:20|safe }}
+                </article>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section class="pagination-wrap">
+        <div class="container">
+            {% if page_obj.has_other_pages %}
+            <div class="pagination">
+                <ul class="semi-rounded-blocks">
+                {% if page_obj.has_previous %}
+                    <li><a href="?page={{ page_obj.previous_page_number }}">&lt;</a></li>
+                {% endif %}
+
+                {% for p in page_obj.paginator.page_range %}
+                    {% if page_obj.number == p %}
+                    <li class="active"><a href="#">{{ p }}</a></li>
+                    {% elif p > page_obj.number|add:-4 and p < page_obj.number|add:4 %}
+                    <li><a href="?page={{ p }}">{{ p }}</a></li>
+                    {% endif %}
+                {% endfor %}
+
+                {% if page_obj.has_next %}
+                    <li><a href="?page={{ page_obj.next_page_number }}">&gt;</a></li>
+                {% endif %}
+                </ul>
+            </div>
+            {% endif %}
+        </div>
+    </section>
+
+    <section class="download-wrap">
+        <div class="container">
+            <div class="download-block">
+                <div class="download-block-left">
+                    <h2>Не нашли нужный вам дизайн?</h2>
+                    <p>Торт по собственному эскизу - это уникальная возможность воплотить ваши мысли в настоящий кулинарный
+                        шедевр. <br>
+                        Мы всегда рады новым красивым идеям! <br>
+                        Изготовим индивидуальный торт из натуральных и качественных ингридиентов с учетом всех вкусовых
+                        пожеланий заказчика.
+                        Если у вас есть фотография или эскиз будущего торта вы можете выслать его нам на электронную почту
+                        или сделать заказ торта по телефону.
+                    </p>
+                </div>
+                <div class="download-block-right">
+                    <img src="{% static 'img/post1.jpeg' %}" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-wrap">
+        <div class="container">
+            <div class="contact-block">
+                <div class="contact-block-left">
+                    <h2>Напишите нам</h2>
+                    <p>Оставьте свой номер в разделе контакты и мы поможем вам с выбором</p>
+                    <p>Время работы: 08:00–20:00<br>
+                       Оформляем заказы с 08:00 до 22:00<br>
+                       Оставить заявку на сайте вы можете даже в нерабочее<br>
+                       время, мы обязательно ответим вам утром:)</p>
+                </div>
+                <div class="contact-block-right">
+                    {% get_popular 3 %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}

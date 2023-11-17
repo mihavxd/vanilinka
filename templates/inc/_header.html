@@ -1,0 +1,25 @@
+{% load menu %}
+{% load static %}
+<header class="header">
+    <div class="container">
+        <a href="{% url 'home' %}" class="logo"><img src="{% static 'img/cake1.png' %}" alt=""></a>
+        <input class="side-menu" type="checkbox" id="side-menu"/>
+        <label class="hamb" for="side-menu"><span class="hamb-line"></span></label>
+        <nav class="nav">
+            {% show_menu %}
+        </nav>
+   </div>
+</header>
+
+<section class="header-wrap">
+    <div class="header-wrap-color">
+        <div class="container">
+            <div class="header-content">
+                <h1>Натуральные торты на заказ в Курске</h1>
+                <h2>праздничные, детские, свадебные, классические<br>
+                    любой дизайн</h2>
+                <p><a href="/contactforms/" class="white-btn">Заказать</a></p>
+            </div>
+        </div>
+    </div>
+</section>

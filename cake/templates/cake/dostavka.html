@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ title }} Доставка :: {{ block.super }}{% endblock %}
+
+{% block content %}
+
+
+<section class="contact-wrap">
+    <div class="container">
+        <div class="contact-block-dc">
+            <div class="contact-block-dc-left">
+                <h2>Доставка</h2>
+                <p>Доставка осуществляется ежедневно с 8:00 до 22:00 <br>
+                    Заказ оформленный до 17:00 может быть доставлен на следующий день.<br>
+                    ВНИМАНИЕ! Более ранний или поздний интервал доставки возможен за дополнительную плату.<br>
+                    Доставка в пределах г.Курска - БЕСПЛАТНО</p>
+            </div>
+            <div class="contact-block-dc-right">
+                <img src="{% static 'img/dostavka.jpg' %}" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

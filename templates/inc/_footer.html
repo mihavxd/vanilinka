@@ -1,0 +1,41 @@
+{% load menu %}
+{% load static %}
+
+
+<section class="footer-wrap">
+    <div class="footer-wrap-color">
+        <div class="container">
+            <div class="footer-top">
+                <ul class="menu-top">
+                    <li><a href="https://vk.com/id37147578{{ cake.get_absolute_url }}"
+                           onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
+                           target="\_blank" rel="nofollow">
+                        <img src="{% static 'img/vk.png' %}" class="footer-lg" alt=""></a></li>
+                    <li><a href="https://t.me/lominna46{{ cake.get_absolute_url }}"
+                           onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
+                           target="\_blank" rel="nofollow">
+                        <img src="{% static 'img/tlg.png' %}" class="footer-lg" alt=""></a></li>
+                    <li><a href="http://wa.me/79513116770{{ cake.get_absolute_url }}"
+                           onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
+                           target="\_blank" rel="nofollow"><img src="{% static 'img/watsapp.png' %}" class="footer-lg"
+                                                                alt=""></a></li>
+                </ul>
+                <div class="header-top-menu">
+                    <ul class="menu-fot">
+                        <li><a href="/category/katalog-tortov/">Каталог тортов</a></li>
+                        <li><a href="{% url 'dostavka' %}">Доставка</a></li>
+                        <li><a href="{% url 'contactforms' %}">Контакты</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="header-content">
+                <p class="cop">&copy; 2023. Все права защищены.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
